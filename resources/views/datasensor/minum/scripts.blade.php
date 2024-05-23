@@ -13,7 +13,7 @@
                 "processing": "Mohon bersabar..."
             },
             ajax: {
-                url: '{{ route('sensorpakan.data') }}',
+                url: '{{ route('sensorminum.data') }}',
             },
             columns: [{
                     data: 'DT_RowIndex',
@@ -21,10 +21,10 @@
                     sortable: false
                 },
                 {
-                    data: 'presentase_pakan',
+                    data: 'presentase_minum',
                 },
                 {
-                    data: 'status_pakan',
+                    data: 'status_minum',
                     sortable: false,
                     searchable: false
                 },

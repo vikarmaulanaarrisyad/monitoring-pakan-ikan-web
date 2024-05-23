@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\{
     DashboardController,
+    PemberiMinumController,
     PenjadwalanPakanController,
     PermissionController,
     PermissionGroupController,
@@ -89,5 +90,11 @@ Route::group(['middleware' => ['auth']], function () {
     Route::group(['middleware' => ['permission:Sensor Pakan Index']], function () {
         Route::get('sensorpakan/data', [SensorPakanController::class, 'data'])->name('sensorpakan.data');
         Route::resource('sensorpakan', SensorPakanController::class);
+    });
+
+    // ROUTE SENSOR MINUM
+    Route::group(['middleware' => ['permission:Sensor Minum Index']], function () {
+        Route::get('sensorminum/data', [PemberiMinumController::class, 'data'])->name('sensorminum.data');
+        Route::resource('sensorminum', PemberiMinumController::class);
     });
 });

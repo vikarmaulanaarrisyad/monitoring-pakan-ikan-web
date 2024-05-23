@@ -12,15 +12,15 @@ class PemberiMinumController extends Controller
      */
     public function index()
     {
-        //
+        return view('datasensor.minum.index');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function data()
     {
-        //
+        $query = PemberiMinum::all();
+        return datatables($query)
+            ->addIndexColumn()
+            ->toJson();
     }
 
     /**
@@ -28,38 +28,27 @@ class PemberiMinumController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = [
+            'jarak'             => $request->jarak,
+            'presentase_minum'  => $request->presentase_minum,
+            'status_minum'      => $request->status_minum,
+        ];
+
+        PemberiMinum::create($data);
+
+        return 'Berhasil';
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(PemberiMinum $pemberiMinum)
+    public function bacadata()
     {
-        //
+        $query = PemberiMinum::all();
+        return response()->json($query);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(PemberiMinum $pemberiMinum)
+    public function deleteAll()
     {
-        //
-    }
+        PemberiMinum::truncate();
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, PemberiMinum $pemberiMinum)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(PemberiMinum $pemberiMinum)
-    {
-        //
+        return response()->json(['message' => 'Data Berhasil dihapus']);
     }
 }

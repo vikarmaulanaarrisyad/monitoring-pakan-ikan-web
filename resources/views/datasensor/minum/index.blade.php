@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Data Sensor Pakan')
+@section('title', 'Data Sensor Minum')
 
 @section('breadcrumb')
     @parent

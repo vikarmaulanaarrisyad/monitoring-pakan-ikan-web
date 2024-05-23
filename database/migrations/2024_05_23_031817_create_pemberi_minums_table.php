@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('pemberi_minums', function (Blueprint $table) {
             $table->id();
             $table->integer('jarak');
-            $table->integer('presentase_pakan')->default(0);
+            $table->integer('presentase_minum')->default(0);
             $table->integer('status_minum')->default(0);
             $table->timestamps();
         });
