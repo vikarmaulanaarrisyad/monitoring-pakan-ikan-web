@@ -6,6 +6,7 @@ use App\Http\Controllers\{
     PermissionController,
     PermissionGroupController,
     RoleController,
+    SensorPakanController,
     SettingController,
     UserController
 };
@@ -80,7 +81,13 @@ Route::group(['middleware' => ['auth']], function () {
 
     // ROUTE PENJADWALAN
     Route::group(['middleware' => ['permission:Penjadwalan Pakan Index']], function () {
-        Route::get('penjadwalanpakan/data', [PenjadwalanPakanController::class, 'data'])->name('penjadwalanpakan.data');
-        Route::resource('penjadwalanpakan', PenjadwalanPakanController::class);
+        Route::get('penjadwalan/data', [PenjadwalanPakanController::class, 'data'])->name('penjadwalanpakan.data');
+        Route::resource('penjadwalan', PenjadwalanPakanController::class);
+    });
+
+    // ROUTE SENSOR PAKAN
+    Route::group(['middleware' => ['permission:Sensor Pakan Index']], function () {
+        Route::get('sensorpakan/data', [SensorPakanController::class, 'data'])->name('sensorpakan.data');
+        Route::resource('sensorpakan', SensorPakanController::class);
     });
 });

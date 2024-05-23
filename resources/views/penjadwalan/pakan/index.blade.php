@@ -13,13 +13,13 @@
             <x-card>
                 <x-slot name="header">
                     @can('Penjadwalan Pakan Store')
-                        <button onclick="addData(`{{ route('penjadwalanpakan.store') }}`)" class="btn btn-success btn-sm"><i
+                        <button onclick="addData(`{{ route('penjadwalan.store') }}`)" class="btn btn-success btn-sm"><i
                                 class="fas fa-plus-circle"></i> Tambah
                             Jadwal</button>
                     @endcan
                 </x-slot>
 
-                <x-table>
+                <x-table class="penjadwalan">
                     <x-slot name="thead">
                         <th>No</th>
                         <th>Waktu Mulai</th>

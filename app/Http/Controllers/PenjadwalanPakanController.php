@@ -27,8 +27,8 @@ class PenjadwalanPakanController extends Controller
             })
             ->addColumn('action', function ($query) {
                 return '
-                <button class="btn btn-sm btn-primary" onclick="editData(`' . route('penjadwalanpakan.show', $query->id) . '`)"><i class="fas fa-pencil-alt"></i></button>
-                <button class="btn btn-sm btn-danger" onclick="deleteData(`' . route('penjadwalanpakan.destroy', $query->id) . '`,`' . $query->waktu_mulai . '`)"><i class="fas fa-trash"></i></button>
+                <button class="btn btn-sm btn-primary" onclick="editData(`' . route('penjadwalan.show', $query->id) . '`)"><i class="fas fa-pencil-alt"></i></button>
+                <button class="btn btn-sm btn-danger" onclick="deleteData(`' . route('penjadwalan.destroy', $query->id) . '`,`' . $query->waktu_mulai . '`)"><i class="fas fa-trash"></i></button>
                 ';
             })
             ->rawColumns(['action'])

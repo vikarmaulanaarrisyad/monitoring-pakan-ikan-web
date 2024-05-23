@@ -12,15 +12,15 @@ class SensorPakanController extends Controller
      */
     public function index()
     {
-        //
+        return view('datasensor.pakan.index');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function data()
     {
-        //
+        $query = SensorPakan::all();
+        return datatables($query)
+            ->addIndexColumn()
+            ->toJson();
     }
 
     /**
@@ -28,38 +28,27 @@ class SensorPakanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = [
+            'jarak'             => $request->jarak,
+            'presentase_pakan'  => $request->presentase_pakan,
+            'status_pakan'      => $request->status_pakan,
+        ];
+
+        SensorPakan::create($data);
+
+        return 'Berhasil';
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(SensorPakan $sensorPakan)
+    public function bacadata()
     {
-        //
+        $query = SensorPakan::all();
+        return response()->json($query);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(SensorPakan $sensorPakan)
+    public function deleteAll()
     {
-        //
-    }
+        SensorPakan::truncate();
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, SensorPakan $sensorPakan)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(SensorPakan $sensorPakan)
-    {
-        //
+        return response()->json(['message' => 'Data Berhasil dihapus']);
     }
 }
