@@ -42,6 +42,40 @@
                         </a>
                     </li>
                 @endcan
+                @can('Penjadwalan Pakan Index')
+                    <li class="nav-item">
+                        <a href="{{ route('penjadwalanpakan.index') }}" class="nav-link">
+                            <i class="nav-icon fas fa-calendar-alt"></i>
+                            <p>
+                                Penjadwalan Pakan
+                            </p>
+                        </a>
+                    </li>
+                @endcan
+                {{--
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-chart-pie"></i>
+                        <p>
+                            Data Sensor
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('jarak.index') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Sensor Jarak</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('sensorair.index') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Sensor PH Air</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>  --}}
 
                 @can('Konfigurasi Index')
                     <li class="nav-item">

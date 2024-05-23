@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\{
     DashboardController,
+    PenjadwalanPakanController,
     PermissionController,
     PermissionGroupController,
     RoleController,
@@ -75,5 +76,11 @@ Route::group(['middleware' => ['auth']], function () {
             Route::get('/setting', 'index')->name('setting.index');
             Route::put('/setting/{setting}', 'update')->name('setting.update');
         });
+    });
+
+    // ROUTE PENJADWALAN
+    Route::group(['middleware' => ['permission:Penjadwalan Pakan Index']], function () {
+        Route::get('penjadwalanpakan/data', [PenjadwalanPakanController::class, 'data'])->name('penjadwalanpakan.data');
+        Route::resource('penjadwalanpakan', PenjadwalanPakanController::class);
     });
 });

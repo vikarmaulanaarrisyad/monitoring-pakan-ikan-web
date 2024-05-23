@@ -6,6 +6,12 @@
         </li>
     </ul>
 
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <div class="text-bold"><span id="jamSekarang">10:00:00</span></div>
+        </li>
+    </ul>
+
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
         <!-- Navbar Search -->

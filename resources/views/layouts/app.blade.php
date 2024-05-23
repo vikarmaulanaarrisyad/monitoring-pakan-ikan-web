@@ -145,12 +145,61 @@
 
     <!-- AdminLTE App -->
     <script src="{{ asset('AdminLTE/dist/js/adminlte.js?v=3.2.0') }}"></script>
-    <script src="{{ asset('AdminLTE/dist/js/pages/dashboard.js') }}"></script>
+    {{--  <script src="{{ asset('AdminLTE/dist/js/pages/dashboard.js') }}"></script>  --}}
 
     <script src="{{ asset('/js/custom.js') }}"></script>
 
     <x-toast />
     @stack('scripts')
+
+    <script>
+        $(document).ready(function() {
+            function cekJam() {
+                // Mendapatkan waktu saat ini
+                var now = new Date();
+
+                // Menetapkan zona waktu Asia/Jakarta
+                var options = {
+                    timeZone: 'Asia/Jakarta',
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    second: '2-digit'
+                };
+                var jakartaTime = now.toLocaleTimeString('id-ID', options);
+
+                // Menampilkan waktu saat ini di div dengan id "current-time"
+                $('#jamSekarang').text('Waktu Sekarang : ' + jakartaTime);
+
+                $.ajax({
+                    url: '{{ route('api.penjadwalanpakan.jadwalpakan') }}',
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function(response) {
+                        console.log('Data jadwal pakan berhasil diperbarui:', response);
+                    },
+                    error: function(error) {
+                        console.error('Gagal memuat data jadwal pakan');
+                    }
+                });
+
+                $.ajax({
+                    url: '{{ route('api.penjadwalanpakan.bacadata') }}',
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function(response) {
+                        console.log('Data jadwal pakan berhasil dibaca:', response);
+                    },
+                    error: function(error) {
+                        console.error('Gagal memuat data jadwal pakan');
+                    }
+                });
+            }
+
+            // Jalankan cekJam setiap detik
+            setInterval(cekJam, 1000);
+        });
+    </script>
+
 </body>
 
 </html>
