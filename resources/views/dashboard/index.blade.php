@@ -8,5 +8,6 @@
 @endsection
 
 @section('content')
-    @includeIf('dashboard.small_box')
+    @includeIf('dashboard.grafik_chart')
+    {{--  @includeIf('dashboard.small_box')  --}}
 @endsection

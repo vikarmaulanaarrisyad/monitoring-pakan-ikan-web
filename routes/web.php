@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\{
     DashboardController,
+    PakanManualController,
     PemberiMinumController,
     PenjadwalanPakanController,
     PermissionController,
@@ -97,4 +98,8 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('sensorminum/data', [PemberiMinumController::class, 'data'])->name('sensorminum.data');
         Route::resource('sensorminum', PemberiMinumController::class);
     });
+
+    // Monitoring
+    Route::get('pakanmanual/status', [PakanManualController::class, 'getStatus'])->name('pakanmanual.status');
+    Route::resource('/pakanmanual', PakanManualController::class);
 });

@@ -20,8 +20,7 @@
 
     <!-- iCheck -->
     <link rel="stylesheet" href="{{ asset('/AdminLTE/plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}">
-    <!-- JQVMap -->
-    <link rel="stylesheet" href="{{ asset('/AdminLTE/plugins/jqvmap/jqvmap.min.css') }}">
+
     <!-- overlayScrollbars -->
     <link rel="stylesheet" href="{{ asset('/AdminLTE/plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }}">
     <!-- SweetAler2 -->
@@ -128,13 +127,6 @@
     <script src="{{ asset('/AdminLTE/plugins/chart.js/Chart.min.js') }}"></script>
     <!-- Sparkline -->
     <script src="{{ asset('/AdminLTE/plugins/sparklines/sparkline.js') }}"></script>
-    <!-- JQVMap -->
-    <script src="{{ asset('/AdminLTE/plugins/jqvmap/jquery.vmap.min.js') }}"></script>
-    <script src="{{ asset('/AdminLTE/plugins/jqvmap/maps/jquery.vmap.usa.js') }}"></script>
-    <!-- jQuery Knob Chart -->
-    <script src="{{ asset('/AdminLTE/plugins/jquery-knob/jquery.knob.min.js') }}"></script>
-    <!-- daterangepicker -->
-    <script src="{{ asset('/AdminLTE/plugins/moment/moment.min.js') }}"></script>
 
     <!-- overlayScrollbars -->
     <script src="{{ asset('/AdminLTE/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
@@ -174,24 +166,16 @@
                     url: '{{ route('api.penjadwalanpakan.jadwalpakan') }}',
                     type: 'GET',
                     dataType: 'json',
-                    success: function(response) {
-                        console.log('Data jadwal pakan berhasil diperbarui:', response);
-                    },
-                    error: function(error) {
-                        console.error('Gagal memuat data jadwal pakan');
-                    }
+                    success: function(response) {},
+                    error: function(error) {}
                 });
 
                 $.ajax({
                     url: '{{ route('api.penjadwalanpakan.bacadata') }}',
                     type: 'GET',
                     dataType: 'json',
-                    success: function(response) {
-                        console.log('Data jadwal pakan berhasil dibaca:', response);
-                    },
-                    error: function(error) {
-                        console.error('Gagal memuat data jadwal pakan');
-                    }
+                    success: function(response) {},
+                    error: function(error) {}
                 });
             }
 

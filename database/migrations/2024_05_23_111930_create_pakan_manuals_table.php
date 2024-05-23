@@ -11,11 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('sensor_pakans', function (Blueprint $table) {
+        Schema::create('pakan_manuals', function (Blueprint $table) {
             $table->id();
-            $table->integer('jarak');
-            $table->integer('presentase_pakan')->default(0);
-            $table->string('status_pakan')->default(0);
+            $table->integer('status_pakan')->default(0);
             $table->timestamps();
         });
     }
@@ -25,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('sensor_pakans');
+        Schema::dropIfExists('pakan_manuals');
     }
 };

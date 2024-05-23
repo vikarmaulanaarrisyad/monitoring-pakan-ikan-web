@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\PakanManual;
 use App\Models\PemberiMinum;
 use Illuminate\Http\Request;
 
@@ -21,6 +22,12 @@ class PemberiMinumController extends Controller
         return datatables($query)
             ->addIndexColumn()
             ->toJson();
+    }
+
+    public function getStatus()
+    {
+        $status = PakanManual::first()->status;
+        return response()->json(['status' => $status]);
     }
 
     /**
