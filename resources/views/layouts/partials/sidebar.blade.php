@@ -80,6 +80,25 @@
                     </ul>
                 </li>
 
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-globe"></i>
+                        <p>
+                            Blog
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('abouts.index') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>About</p>
+                            </a>
+                        </li>
+
+                    </ul>
+                </li>
+
                 @can('Konfigurasi Index')
                     <li class="nav-item">
                         <a href="#" class="nav-link">

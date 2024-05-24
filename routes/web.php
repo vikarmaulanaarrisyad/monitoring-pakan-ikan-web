@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\{
+    AboutController,
     DashboardController,
+    FrontController,
     PakanManualController,
     PemberiMinumController,
     PenjadwalanPakanController,
@@ -14,9 +16,10 @@ use App\Http\Controllers\{
 };
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('frontend.landingpage');
-});
+// Route::get('/', function () {
+//     return view('frontend.landingpage');
+// });
+Route::get('/', [FrontController::class, 'landingpage'])->name('landingpage');
 
 Route::group(['middleware' => ['auth']], function () {
 
@@ -102,4 +105,9 @@ Route::group(['middleware' => ['auth']], function () {
     // Monitoring
     Route::get('pakanmanual/status', [PakanManualController::class, 'getStatus'])->name('pakanmanual.status');
     Route::resource('/pakanmanual', PakanManualController::class);
+
+    // Route::group(['middleware' => ['permission: About Index']], function () {
+    // });
+    Route::get('/abouts/data', [AboutController::class, 'data'])->name('abouts.data');
+    Route::resource('/abouts', AboutController::class);
 });

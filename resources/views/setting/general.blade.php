@@ -42,6 +42,18 @@
                 </div>
             </div>
         </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="form-group"></div>
+                <label for="deskripsi">Deskripsi Aplikasi</label>
+                <textarea class="form-control form-control @error('deskripsi') is-invalid @enderror" id="deskripsi" rows="10"
+                    name="deskripsi" autocomplete="off">{{ old('deskripsi') ?? $setting->deskripsi }}</textarea>
+                @error('deskripsi')
+                    <span class="invalid-feedback">{{ $message }}</span>
+                @enderror
+            </div>
+        </div>
         <x-slot name="footer">
             <button type="reset" class="btn btn-dark">Reset</button>
             <button class="btn btn-primary">Simpan</button>

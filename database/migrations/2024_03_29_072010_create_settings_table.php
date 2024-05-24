@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('nama_aplikasi')->nullable();
             $table->string('nama_singkatan_aplikasi')->nullable();
             $table->string('nama_pemilik')->nullable();
+            $table->text('deskripsi')->nullable();
             $table->string('logo_login')->nullable()->default('login.png');
             $table->string('logo_aplikasi')->nullable()->default('logo_aplikasi.png');
             $table->string('favicon')->nullable()->default('favicon.png');
