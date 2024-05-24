@@ -18,24 +18,16 @@ class SettingController extends Controller
     public function update1(Request $request, Setting $setting)
     {
         $rules = [
-            'owner_name' => 'required',
-            'email' => 'required|email',
-            'phone' => 'required|string|min:11|max:17',
-            'phone_hours' => 'required',
-            'about' => 'required',
-            'address' => 'nullable',
-            'city' => 'nullable',
-            'province' => 'nullable',
-            'company_name' => 'required',
-            'short_description' => 'required',
-            'keyword' => 'nullable'
+            'nama_aplikasi' => 'required',
+            'nama_singkatan_aplikasi' => 'required',
+            'nama_pemilik' => 'required',
         ];
 
         if ($request->has('pills') && $request->pills == 'logo') {
             $rules = [
-                'path_image' => 'nullable|mimes:png,jpg,jpeg|max:2048',
-                'path_image_header' => 'nullable|mimes:png,jpg,jpeg|max:2048',
-                'path_image_footer' => 'nullable|mimes:png,jpg,jpeg|max:2048',
+                'logo_login' => 'nullable|mimes:png,jpg,jpeg|max:2048',
+                'logo_aplikasi' => 'nullable|mimes:png,jpg,jpeg|max:2048',
+                'favicon' => 'nullable|mimes:png,jpg,jpeg|max:2048',
             ];
         }
 
@@ -48,30 +40,30 @@ class SettingController extends Controller
             ];
         }
 
-        $data = $request->except('path_image', 'path_image_header', 'path_image_footer');
+        $data = $request->except('logo_login', 'logo_aplikasi', 'favicon');
 
-        if ($request->hasFile('path_image')) {
-            if (Storage::disk('public')->exists($setting->path_image)) {
-                Storage::disk('public')->delete($setting->path_image);
+        if ($request->hasFile('logo_login')) {
+            if (Storage::disk('public')->exists($setting->logo_login)) {
+                Storage::disk('public')->delete($setting->logo_login);
             }
 
-            $data['path_image'] = upload('setting', $request->file('path_image'), 'setting');
+            $data['logo_login'] = upload('setting', $request->file('logo_login'), 'setting');
         }
 
-        if ($request->hasFile('path_image_header')) {
-            if (Storage::disk('public')->exists($setting->path_image_header)) {
-                Storage::disk('public')->delete($setting->path_image_header);
+        if ($request->hasFile('logo_aplikasi')) {
+            if (Storage::disk('public')->exists($setting->logo_aplikasi)) {
+                Storage::disk('public')->delete($setting->logo_aplikasi);
             }
 
-            $data['path_image_header'] = upload('setting', $request->file('path_image_header'), 'setting');
+            $data['logo_aplikasi'] = upload('setting', $request->file('logo_aplikasi'), 'setting');
         }
 
-        if ($request->hasFile('path_image_footer')) {
-            if (Storage::disk('public')->exists($setting->path_image_footer)) {
-                Storage::disk('public')->delete($setting->path_image_footer);
+        if ($request->hasFile('favicon')) {
+            if (Storage::disk('public')->exists($setting->favicon)) {
+                Storage::disk('public')->delete($setting->favicon);
             }
 
-            $data['path_image_footer'] = upload('setting', $request->file('path_image_footer'), 'setting');
+            $data['favicon'] = upload('setting', $request->file('favicon'), 'setting');
         }
 
         $setting->update($data);
@@ -89,24 +81,16 @@ class SettingController extends Controller
     public function update(Request $request, Setting $setting)
     {
         $rules = [
-            'owner_name' => 'required',
-            'email' => 'required|email',
-            'phone' => 'required|string|min:11|max:17',
-            'phone_hours' => 'required',
-            'about' => 'required',
-            'address' => 'nullable',
-            'city' => 'nullable',
-            'province' => 'nullable',
-            'company_name' => 'required',
-            'short_description' => 'required',
-            'keyword' => 'nullable'
+            'nama_aplikasi' => 'required',
+            'nama_singkatan_aplikasi' => 'required',
+            'nama_pemilik' => 'required',
         ];
 
         if ($request->has('pills') && $request->pills == 'logo') {
             $rules = [
-                'path_image' => 'nullable|mimes:png,jpg,jpeg|max:2048',
-                'path_image_header' => 'nullable|mimes:png,jpg,jpeg|max:2048',
-                'path_image_footer' => 'nullable|mimes:png,jpg,jpeg|max:2048',
+                'logo_login' => 'nullable|mimes:png,jpg,jpeg|max:2048',
+                'logo_aplikasi' => 'nullable|mimes:png,jpg,jpeg|max:2048',
+                'favicon' => 'nullable|mimes:png,jpg,jpeg|max:2048',
             ];
         }
 
@@ -119,30 +103,30 @@ class SettingController extends Controller
             ];
         }
 
-        $data = $request->except('path_image', 'path_image_header', 'path_image_footer');
+        $data = $request->except('logo_login', 'logo_aplikasi', 'favicon');
 
-        if ($request->hasFile('path_image') && $setting->path_image) {
-            if (Storage::disk('public')->exists($setting->path_image)) {
-                Storage::disk('public')->delete($setting->path_image);
+        if ($request->hasFile('logo_login') && $setting->logo_login) {
+            if (Storage::disk('public')->exists($setting->logo_login)) {
+                Storage::disk('public')->delete($setting->logo_login);
             }
 
-            $data['path_image'] = upload('setting', $request->file('path_image'), 'setting');
+            $data['logo_login'] = upload('setting', $request->file('logo_login'), 'setting');
         }
 
-        if ($request->hasFile('path_image_header') && $setting->path_image_header) {
-            if (Storage::disk('public')->exists($setting->path_image_header)) {
-                Storage::disk('public')->delete($setting->path_image_header);
+        if ($request->hasFile('logo_aplikasi') && $setting->logo_aplikasi) {
+            if (Storage::disk('public')->exists($setting->logo_aplikasi)) {
+                Storage::disk('public')->delete($setting->logo_aplikasi);
             }
 
-            $data['path_image_header'] = upload('setting', $request->file('path_image_header'), 'setting');
+            $data['logo_aplikasi'] = upload('setting', $request->file('logo_aplikasi'), 'setting');
         }
 
-        if ($request->hasFile('path_image_footer') && $setting->path_image_footer) {
-            if (Storage::disk('public')->exists($setting->path_image_footer)) {
-                Storage::disk('public')->delete($setting->path_image_footer);
+        if ($request->hasFile('favicon') && $setting->favicon) {
+            if (Storage::disk('public')->exists($setting->favicon)) {
+                Storage::disk('public')->delete($setting->favicon);
             }
 
-            $data['path_image_footer'] = upload('setting', $request->file('path_image_footer'), 'setting');
+            $data['favicon'] = upload('setting', $request->file('favicon'), 'setting');
         }
 
         $setting->update($data);

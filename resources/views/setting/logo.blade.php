@@ -7,45 +7,45 @@
             <div class="col-lg-4">
                 <strong class="d-block text-center">Favicon</strong>
                 <div class="text-center">
-                    <img src="{{ Storage::url($setting->path_image ?? '') }}" alt=""
-                        class="img-thumbnail preview-path_image" width="200">
+                    <img src="{{ Storage::url($setting->favicon ?? '') }}" alt=""
+                        class="img-thumbnail preview-favicon" width="200">
                 </div>
                 <div class="form-group mt-3">
                     <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="path_image" name="path_image"
-                            onchange="preview('.preview-path_image', this.files[0])">
-                        <label class="custom-file-label" for="path_image">Choose file</label>
+                        <input type="file" class="custom-file-input" id="favicon" name="favicon"
+                            onchange="preview('.preview-favicon', this.files[0])">
+                        <label class="custom-file-label" for="favicon">Choose file</label>
                     </div>
                 </div>
             </div>
             <div class="col-lg-2"></div>
             <div class="col-lg-4">
-                <strong class="d-block text-center">Header</strong>
+                <strong class="d-block text-center">Logo Login</strong>
                 <div class="text-center">
-                    <img src="{{ Storage::url($setting->path_image_header ?? '') }}" alt=""
-                        class="img-thumbnail preview-path_image_header" width="200">
+                    <img src="{{ Storage::url($setting->logo_login ?? '') }}" alt=""
+                        class="img-thumbnail preview-logo_login" width="200">
                 </div>
                 <div class="form-group mt-3">
                     <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="path_image_header" name="path_image_header"
-                            onchange="preview('.preview-path_image_header', this.files[0])">
-                        <label class="custom-file-label" for="path_image_header">Choose file</label>
+                        <input type="file" class="custom-file-input" id="logo_login" name="logo_login"
+                            onchange="preview('.preview-logo_login', this.files[0])">
+                        <label class="custom-file-label" for="logo_login">Choose file</label>
                     </div>
                 </div>
             </div>
         </div>
         <div class="row justify-content-center">
             <div class="col-lg-4">
-                <strong class="d-block text-center">Footer</strong>
+                <strong class="d-block text-center">Logo Aplikasi</strong>
                 <div class="text-center">
-                    <img src="{{ Storage::url($setting->path_image_footer ?? '') }}" alt=""
-                        class="img-thumbnail preview-path_image_footer" width="200">
+                    <img src="{{ Storage::url($setting->logo_aplikasi ?? '') }}" alt=""
+                        class="img-thumbnail preview-logo_aplikasi" width="200">
                 </div>
                 <div class="form-group mt-3">
                     <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="path_image_footer" name="path_image_footer"
-                            onchange="preview('.preview-path_image_footer', this.files[0])">
-                        <label class="custom-file-label" for="path_image_footer">Choose file</label>
+                        <input type="file" class="custom-file-input" id="logo_aplikasi" name="logo_aplikasi"
+                            onchange="preview('.preview-logo_aplikasi', this.files[0])">
+                        <label class="custom-file-label" for="logo_aplikasi">Choose file</label>
                     </div>
                 </div>
             </div>

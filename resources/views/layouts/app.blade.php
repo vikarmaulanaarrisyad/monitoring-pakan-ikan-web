@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ $setting->company_name }} - @yield('title')</title>
+    <title>{{ $setting->nama_aplikasi }} - @yield('title')</title>
 
-    <link rel="icon" href="{{ Storage::url($setting->path_image ?? '') }}" type="image/*">
+    <link rel="icon" href="{{ Storage::url($setting->logo_aplikasi ?? '') }}" type="image/*">
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
