@@ -15,13 +15,13 @@
     <div class="col-md-4">
         <div class="card card-primary">
             <div class="card-header">
-                <h3 class="card-title"><i class="fas fa-fish"></i> Pemberian Pakan</h3>
+                <h3 class="card-title"><i class="fas fa-cat"></i> Pemberian Pakan</h3>
             </div>
 
             <div class="card-body">
                 <div class="row">
                     <div class="col-lg-6">
-                        <strong>Beri Pakan</strong>
+                        <strong>Beri Pakan Manual</strong>
                     </div>
                     <div class="col-lg-6">
                         <div class="custom-control custom-switch">
@@ -32,31 +32,6 @@
                         </div>
                     </div>
                 </div>
-
-                <hr>
-                <strong>Terakhir Kali Pemberian Pakan : </strong>
-                <p class="text-muted">
-                    Kamis, 23 Mei 2024,
-                    13:09:44
-                </p>
-                <hr>
-            </div>
-        </div>
-        <div class="card card-danger">
-            <div class="card-header">
-                <h3 class="card-title"><i class="fas fa-fish"></i> Ikan</h3>
-            </div>
-
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <strong>Jenis Ikan : </strong>
-                        <p class="text-muted">
-                            Ikan Hias
-                        </p>
-                    </div>
-                </div>
-
             </div>
         </div>
     </div>
