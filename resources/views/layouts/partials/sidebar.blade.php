@@ -10,19 +10,14 @@
     <div class="sidebar">
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-                @if (!empty(auth()->user()->path_image) && Storage::disk('public')->exists(auth()->user()->path_image))
-                    <img src="{{ Storage::url(auth()->user()->path_image) }}" alt="logo"
-                        class="img-circle elevation-2" style="width: 35px; height: 35px;">
-                @else
-                    <img src="{{ asset('AdminLTE/dist/img/user1-128x128.jpg') }}" alt="logo"
-                        class="img-circle elevation-2" style="width: 35px; height: 35px;">
-                @endif
+                <img src="{{ Storage::url(auth()->user()->path_image) }}" alt="logo" class="img-circle elevation-2"
+                    style="width: 35px; height: 35px;">
             </div>
             <div class="info">
                 <a href="{{ route('profile.show') }}" class="d-block" data-toggle="tooltip" data-placement="top"
                     title="Edit Profil">
                     {{ auth()->user()->name }}
-                    <i class="fas fa-pencil-alt ml-2 text-sm text-primary"></i>
+                    {{--  <i class="fas fa-pencil-alt ml-2 text-sm text-primary"></i>  --}}
                 </a>
             </div>
         </div>
@@ -32,26 +27,22 @@
             <ul class="nav nav-pills nav-sidebar flex-column text-sm nav-child-indent" data-widget="treeview"
                 role="menu" data-accordion="false">
                 <li class="nav-header">MENU</li>
-                @can('Dashboard Index')
-                    <li class="nav-item">
-                        <a href="{{ route('dashboard') }}" class="nav-link">
-                            <i class="nav-icon fas fa-tachometer-alt"></i>
-                            <p>
-                                Dashboard
-                            </p>
-                        </a>
-                    </li>
-                @endcan
-                @can('Penjadwalan Pakan Index')
-                    <li class="nav-item">
-                        <a href="{{ route('penjadwalan.index') }}" class="nav-link">
-                            <i class="nav-icon fas fa-calendar-alt"></i>
-                            <p>
-                                Penjadwalan Pakan
-                            </p>
-                        </a>
-                    </li>
-                @endcan
+                <li class="nav-item">
+                    <a href="{{ route('dashboard') }}" class="nav-link">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p>
+                            Dashboard
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('penjadwalan.index') }}" class="nav-link">
+                        <i class="nav-icon fas fa-calendar-alt"></i>
+                        <p>
+                            Penjadwalan Pakan
+                        </p>
+                    </a>
+                </li>
 
                 <li class="nav-item">
                     <a href="#" class="nav-link">
@@ -62,14 +53,12 @@
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
-                        @can('Sensor Pakan Index')
-                            <li class="nav-item">
-                                <a href="{{ route('sensorpakan.index') }}" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Sensor Pakan</p>
-                                </a>
-                            </li>
-                        @endcan
+                        <li class="nav-item">
+                            <a href="{{ route('sensorpakan.index') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Sensor Pakan</p>
+                            </a>
+                        </li>
 
                         <li class="nav-item">
                             <a href="{{ route('sensorminum.index') }}" class="nav-link">
@@ -109,7 +98,7 @@
                         </li>
                     </ul>
                 </li>
-
+                {{--
                 @can('Konfigurasi Index')
                     <li class="nav-item">
                         <a href="#" class="nav-link">
@@ -168,7 +157,7 @@
                             </p>
                         </a>
                     </li>
-                @endcan
+                @endcan  --}}
             </ul>
         </nav>
     </div>
