@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Models\PemberiMinum;
 use Illuminate\Http\Request;
 
 class ApiSensorMinumController extends Controller
