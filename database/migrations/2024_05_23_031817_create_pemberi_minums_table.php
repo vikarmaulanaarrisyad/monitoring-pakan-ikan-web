@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->integer('jarak');
             $table->integer('presentase_minum')->default(0);
-            $table->string('status_minum')->default(0);
+            $table->string('status_minum')->nullable();
             $table->timestamps();
         });
     }
