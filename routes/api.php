@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\ApiPenjadwalanPakanController;
+use App\Http\Controllers\API\ApiSensorMinumController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PemberiMinumController;
 use App\Http\Controllers\SensorPakanController;
@@ -16,5 +17,4 @@ Route::get('/v1/sensorminum/delete_all', [PemberiMinumController::class, 'delete
 
 Route::get('/v1/monitoring/getDataPakan', [DashboardController::class, 'getDataPakan'])->name('api.monitoring.data_pakan');
 
-
-Route::apiResource('/v1/sensorminum', PemberiMinumController::class);
+Route::apiResource('/v1/sensorminum', ApiSensorMinumController::class);
