@@ -3,6 +3,7 @@
 use App\Http\Controllers\{
     AboutController,
     DashboardController,
+    FaqController,
     FeatureController,
     FrontController,
     PakanManualController,
@@ -111,4 +112,7 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::get('/feature/data', [FeatureController::class, 'data'])->name('feature.data');
     Route::resource('/feature', FeatureController::class);
+
+    Route::get('/faq/data', [FaqController::class, 'data'])->name('faq.data');
+    Route::resource('faq', FaqController::class);
 });

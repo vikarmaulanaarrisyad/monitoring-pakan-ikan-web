@@ -101,6 +101,12 @@
                                 <p>Feature</p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="{{ route('faq.index') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Faq</p>
+                            </a>
+                        </li>
                     </ul>
                 </li>
 
