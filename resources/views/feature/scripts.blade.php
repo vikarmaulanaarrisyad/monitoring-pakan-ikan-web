@@ -10,13 +10,13 @@
             $('#spinner-border').hide();
         });
 
-        table = $('#permissionTable').DataTable({
+        table = $('.table').DataTable({
             processing: false,
             serverSide: true,
             autoWidth: false,
             responsive: true,
             ajax: {
-                url: '{{ route('permission.data') }}',
+                url: '{{ route('feature.data') }}',
             },
             columns: [{
                     data: 'DT_RowIndex',
@@ -25,12 +25,12 @@
                     searchable: false
                 },
                 {
-                    data: 'name',
-                    name: 'name'
+                    data: 'title',
+                    name: 'title'
                 },
                 {
-                    data: 'permission_group',
-                    name: 'permission_group'
+                    data: 'description',
+                    name: 'description'
                 },
                 {
                     data: 'action',
@@ -41,48 +41,16 @@
             ]
         });
 
-        function addFormPermission(url, title = 'Form Tambah Permission') {
+        function addForm(url, title = 'Tambah') {
             $(modal).modal('show');
             $(`${modal} .modal-title`).text(title);
             $(`${modal} form`).attr('action', url);
-            $(`${modal} [name=_method]`).val('POST');
-            $(`${modal} #name`).prop('disabled', false);
-            $('#spinner-border').hide();
-
-            $(button).show();
-            $(button).prop('disabled', false);
+            $(`${modal} [name=_method]`).val('post');
 
             resetForm(`${modal} form`);
         }
 
-        function detailDataPermission(url, title = 'Detail Permission') {
-            $.ajax({
-                url: url,
-                dataType: 'JSON',
-                type: 'GET',
-                success: function(response) {
-                    $(modal).modal('show');
-                    $(`${modal} .modal-title`).text(title);
-                    $(`${modal} form`).attr('action', url);
-                    $(`${modal} [name=_method]`).val('PUT');
-                    $(`${modal} #submitBtn`).hide();
-                    $(`${modal} #name`).prop('disabled', true);
-
-                    resetForm(`${modal} form`);
-                    loopForm(response.data);
-                },
-                error: function(errors) {
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Opps! Gagal',
-                        text: errors.responseJSON.message,
-                        showConfirmButton: true,
-                    });
-                }
-            })
-        }
-
-        function editDataPermission(url, title = 'Edit Permission') {
+        function editForm(url, idUser, title = 'Form Edit') {
             $.ajax({
                 url: url,
                 type: 'GET', // Ubah metode menjadi GET untuk mendapatkan data peran
@@ -90,11 +58,8 @@
                 success: function(response) {
                     $(modal).modal('show');
                     $(`${modal} .modal-title`).text(title);
-                    $(`${modal} form`).attr('action',
-                        `${url}/update`); // Gunakan URL update untuk aksi formulir
-                    $(`${modal} [name=_method]`).val('PUT');
-                    $(`${modal} #name`).prop('disabled', false);
-                    $(`${modal} #submitBtn`).show();
+                    $(`${modal} form`).attr('action', url);
+                    $(`${modal} [name=_method]`).val('put');
 
                     resetForm(`${modal} form`);
                     loopForm(response.data);
@@ -111,7 +76,7 @@
             })
         }
 
-        function deleteDataPermission(url, name, title = 'Delete Permission') {
+        function deleteData(url, name) {
             const swalWithBootstrapButtons = Swal.mixin({
                 customClass: {
                     confirmButton: 'btn btn-success',

@@ -3,6 +3,7 @@
 use App\Http\Controllers\{
     AboutController,
     DashboardController,
+    FeatureController,
     FrontController,
     PakanManualController,
     PemberiMinumController,
@@ -16,9 +17,6 @@ use App\Http\Controllers\{
 };
 use Illuminate\Support\Facades\Route;
 
-// Route::get('/', function () {
-//     return view('frontend.landingpage');
-// });
 Route::get('/', [FrontController::class, 'landingpage'])->name('landingpage');
 
 Route::group(['middleware' => ['auth']], function () {
@@ -110,4 +108,7 @@ Route::group(['middleware' => ['auth']], function () {
     // });
     Route::get('/abouts/data', [AboutController::class, 'data'])->name('abouts.data');
     Route::resource('/abouts', AboutController::class);
+
+    Route::get('/feature/data', [FeatureController::class, 'data'])->name('feature.data');
+    Route::resource('/feature', FeatureController::class);
 });
