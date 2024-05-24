@@ -17,4 +17,4 @@ Route::get('/v1/sensorminum/delete_all', [PemberiMinumController::class, 'delete
 
 Route::get('/v1/monitoring/getDataPakan', [DashboardController::class, 'getDataPakan'])->name('api.monitoring.data_pakan');
 
-Route::apiResource('/v1/sensorminum', ApiSensorMinumController::class);
+Route::apiResource('/v1/sensor_minum', ApiSensorMinumController::class);
