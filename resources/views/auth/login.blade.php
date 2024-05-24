@@ -13,8 +13,8 @@
                         <div class="row">
                             <div class="col-md-9 col-lg-8 mx-auto">
                                 <a href="{{ url('/') }}">
-                                    @if ($setting->path_image)
-                                        <img src="{{ Storage::url($setting->path_image) }}" alt="" class="w-50 mb-4">
+                                    @if ($setting->logo_login)
+                                        <img src="{{ Storage::url($setting->logo_login) }}" alt="" class="w-50 mb-4">
                                     @else
                                         <img src="{{ asset('/img/logo.png') }}" alt="" class="w-50 mb-4">
                                     @endif
@@ -69,7 +69,7 @@
                                         </button>
                                     </div>
 
-                                    <div class="text-center mt-3">
+                                    <div class="text-center mt-3" style="display: none">
                                         <div class="text-muted">
                                             Jika belum punya akun silahkan registrasi
                                             <a href="{{ route('register') }}" class="text-muted">disini</a>

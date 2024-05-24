@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ $setting->company_name }} - @yield('title')</title>
+    <title>{{ $setting->nama_aplikasi }} - @yield('title')</title>
 
     <link rel="icon" href="{{ asset('/img/favicon.png') }}" type="image/*">
 
@@ -42,7 +42,7 @@
         }
 
         .bg-image {
-            background-image: url('{{ Storage::url($setting->path_image_header) }}');
+            background-image: url('{{ Storage::url($setting->logo_login) }}');
             background-size: cover;
             background-position: center;
         }
