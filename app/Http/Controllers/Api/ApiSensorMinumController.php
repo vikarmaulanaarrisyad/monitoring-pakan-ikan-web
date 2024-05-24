@@ -11,9 +11,9 @@ class ApiSensorMinumController extends Controller
     public function store(Request $request)
     {
         $data = [
-            'jarak'             => $request->jarak,
-            'presentase_minum'  => $request->presentase_minum,
-            'status_minum'      => $request->status_minum,
+            'jarak'             => $request->waterLevelParcent,
+            'presentase_minum'  => $request->waterDistance,
+            'status_minum'      => $request->pakanStatus,
         ];
 
         PemberiMinum::create($data);
