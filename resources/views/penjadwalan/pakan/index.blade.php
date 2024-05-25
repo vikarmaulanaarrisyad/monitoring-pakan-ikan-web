@@ -12,11 +12,9 @@
         <div class="col-lg-12 col-md-12 col-12 col-sm-12">
             <x-card>
                 <x-slot name="header">
-                    @can('Penjadwalan Pakan Store')
-                        <button onclick="addData(`{{ route('penjadwalan.store') }}`)" class="btn btn-success btn-sm"><i
-                                class="fas fa-plus-circle"></i> Tambah
-                            Jadwal</button>
-                    @endcan
+                    <button onclick="addData(`{{ route('penjadwalan.store') }}`)" class="btn btn-success btn-sm"><i
+                            class="fas fa-plus-circle"></i> Tambah
+                        Jadwal</button>
                 </x-slot>
 
                 <x-table class="penjadwalan">

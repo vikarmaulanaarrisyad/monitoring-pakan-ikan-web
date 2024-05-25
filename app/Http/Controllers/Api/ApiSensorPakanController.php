@@ -19,14 +19,18 @@ class ApiSensorPakanController extends Controller
 
         SensorPakan::create($data);
 
-        return 'Berhasil';
+        // return 'Berhasil';
 
-        // return response()->json(['message' => 'Berhasil'], 200);
+        return response()->json(['message' => 'Berhasil'], 200);
     }
 
     public function bacaStatusPakan()
     {
-        $statusPakan = PakanManual::first();
-        return $statusPakan->status_pakan;
+        $statusPakan = PakanManual::first(); // Mengambil data pertama dari model PakanManual
+        if ($statusPakan) {
+            return $statusPakan->status_pakan; // Mengembalikan nilai dari kolom status_pakan
+        } else {
+            return 'Data tidak ditemukan'; // Mengembalikan pesan jika data tidak ditemukan
+        }
     }
 }

@@ -17,7 +17,7 @@ class SensorPakanController extends Controller
 
     public function data()
     {
-        $query = SensorPakan::all();
+        $query = SensorPakan::orderBy('id', 'DESC')->get();
         return datatables($query)
             ->addIndexColumn()
             ->toJson();

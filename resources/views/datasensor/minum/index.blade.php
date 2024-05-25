@@ -12,14 +12,14 @@
         <div class="col-lg-12 col-md-12 col-12 col-sm-12">
             <x-card>
                 <x-slot name="header">
-                    <button class="btn btn-sm btn-danger" onclick="deleteData(`{{ route('api.sensorpakan.delete_all') }}`)"><i
+                    <button class="btn btn-sm btn-danger" onclick="deleteData(`{{ route('api.sensorminum.delete_all') }}`)"><i
                             class="fas fa-trash"></i> Hapus
                         Data</button>
                 </x-slot>
-                <x-table class="datasensor">
+                <x-table>
                     <x-slot name="thead">
                         <th>No</th>
-                        <th>Presentase Pakan %</th>
+                        <th>Presentase Minum %</th>
                         <th>Status</th>
                     </x-slot>
                 </x-table>
@@ -27,4 +27,4 @@
         </div>
     </div>
 @endsection
-@include('datasensor.pakan.scripts')
+@include('datasensor.minum.scripts')

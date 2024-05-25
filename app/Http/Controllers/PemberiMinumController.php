@@ -18,7 +18,7 @@ class PemberiMinumController extends Controller
 
     public function data()
     {
-        $query = PemberiMinum::all();
+        $query = PemberiMinum::orderBy('id', 'DESC')->get();
         return datatables($query)
             ->addIndexColumn()
             ->toJson();
