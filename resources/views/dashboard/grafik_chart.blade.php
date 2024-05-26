@@ -1,17 +1,4 @@
 <div class="row">
-    <div class="col-md-8">
-        <div class="card card-primary">
-            <div class="card-header ui-sortable-handle " style="cursor: move;">
-                <h3 class="card-title">
-                    Grafik Monitoring Pakan Kucing
-                </h3>
-            </div>
-            <div class="card-body">
-                <canvas id="pakanChart" style="height: 400px; width: 400px;"></canvas>
-            </div>
-        </div>
-    </div>
-
     <div class="col-md-4">
         <div class="card card-primary">
             <div class="card-header">
@@ -35,5 +22,34 @@
             </div>
         </div>
     </div>
+    <div class="col-md-8">
+        <div class="card card-primary">
+            <div class="card-header">
+                <h3 class="card-title"><i class="fas fa-cat"></i>Monitoring Camera</h3>
+            </div>
+            <div class="card-body">
+                <div class="col-md-12">
+                    {{--  <video id="video" autoplay></video>  --}}
+                    <img id="video" src="http://{{ $setting->ip_address_esp32cam }}/stream" alt="ESP32-CAM Stream">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card card-primary">
+            <div class="card-header ui-sortable-handle " style="cursor: move;">
+                <h3 class="card-title">
+                    Grafik Monitoring Pakan Kucing
+                </h3>
+            </div>
+            <div class="card-body">
+                <canvas id="pakanChart" style="height: 400px; width: 400px;"></canvas>
+            </div>
+        </div>
+    </div>
 </div>
 @include('dashboard.scripts')
+

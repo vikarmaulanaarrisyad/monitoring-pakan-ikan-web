@@ -2,80 +2,17 @@
     <script src="{{ asset('AdminLTE/plugins/jquery-knob/jquery.knob.min.js') }}"></script>
 @endpush
 
-{{--  @push('scripts')
-    <script>
-        function fetchData() {
-            $.ajax({
-                url: '{{ route('api.monitoring.data_pakan') }}',
-                method: 'GET',
-                success: function(response) {
-                    updateChart(response);
-                },
-                error: function(xhr, status, error) {
-                    console.error('Error fetching data:', error);
-                }
-            });
+@push('css')
+    <style>
+        #video {
+            width: 100%;
+            height: 300px;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            background-color: black;
         }
-
-        function updateChart(data) {
-            var chartCanvas = document.getElementById('pakanChart').getContext('2d');
-            var chartData = {
-                labels: data.listTanggal,
-                datasets: [{
-                    label: 'Persentase Pakan',
-                    backgroundColor: 'rgba(75, 192, 192, 0.5)', // Warna hijau
-                    borderColor: 'rgba(75, 192, 192, 0.8)',
-                    data: data.listPersentasePakan
-                }]
-            };
-            var chartOptions = {
-                maintainAspectRatio: false,
-                responsive: true,
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        ticks: {
-                            callback: function(value) {
-                                return value + '%'; // Menambahkan % di sumbu y
-                            }
-                        }
-                    }
-                },
-                plugins: {
-                    tooltip: {
-                        callbacks: {
-                            label: function(context) {
-                                var label = context.dataset.label || '';
-                                if (label) {
-                                    label += ': ';
-                                }
-                                if (context.parsed.y !== null) {
-                                    label += context.parsed.y + '%'; // Menambahkan simbol persen di tooltip
-                                }
-                                return label;
-                            }
-                        }
-                    }
-                }
-            };
-
-            // Menghancurkan chart lama jika ada
-            if (window.pakanChartInstance) {
-                window.pakanChartInstance.destroy();
-            }
-
-            // Membuat objek Chart.js baru
-            window.pakanChartInstance = new Chart(chartCanvas, {
-                type: 'line',
-                data: chartData,
-                options: chartOptions
-            });
-        }
-
-        // Panggil fungsi fetchData setiap 2 detik menggunakan setInterval
-        setInterval(fetchData, 2000); // Setiap 2000 milidetik (2 detik)
-    </script>
-@endpush  --}}
+    </style>
+@endpush
 
 @push('scripts')
     <script>

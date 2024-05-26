@@ -4,7 +4,7 @@
 
     <x-card>
         <div class="row">
-            <div class="col-lg-4">
+            <div class="col-lg-6">
                 <div class="form-group">
                     <label for="nama_aplikasi">Nama Aplikasi</label>
                     <input type="text"
@@ -16,7 +16,7 @@
                     @enderror
                 </div>
             </div>
-            <div class="col-lg-4">
+            <div class="col-lg-6">
                 <div class="form-group">
                     <label for="nama_aplikasi">Nama Singkatan Aplikasi</label>
                     <input type="text"
@@ -29,7 +29,23 @@
                     @enderror
                 </div>
             </div>
-            <div class="col-lg-4">
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="ip_address_esp32cam">Alamat IP ESP32 Cam</label>
+                    <input type="text"
+                        class="form-control form-control-border border-width-2 @error('ip_address_esp32cam') is-invalid @enderror"
+                        id="ip_address_esp32cam" autocomplete="off" name="ip_address_esp32cam"
+                        value="{{ old('ip_address_esp32cam') ?? $setting->ip_address_esp32cam }}"
+                        placeholder="192.168.0.1">
+                    @error('ip_address_esp32cam')
+                        <span class="invalid-feedback">{{ $message }}</span>
+                    @enderror
+                </div>
+            </div>
+            <div class="col-lg-6">
                 <div class="form-group">
                     <label for="nama_pemilik">Nama Pemilik</label>
                     <input type="text"

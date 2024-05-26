@@ -84,6 +84,7 @@ class SettingController extends Controller
             'nama_aplikasi' => 'required',
             'nama_singkatan_aplikasi' => 'required',
             'nama_pemilik' => 'required',
+            'ip_address_esp32cam' => 'required',
         ];
 
         if ($request->has('pills') && $request->pills == 'logo') {
